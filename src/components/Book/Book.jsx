@@ -2,6 +2,7 @@ import React from 'react';
 import { FaRegStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
+
 const Book = ({ book }) => {
     const { bookId, bookName, author, image, rating, category, publisher, tags } = book;
 

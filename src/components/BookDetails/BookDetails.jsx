@@ -1,14 +1,13 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 
+
 const BookDetails = () => {
     const {bookId} = useParams();
 
     const id = parseInt(bookId);
 
     const data = useLoaderData();
-
-    // console.log(typeof bookId, typeof id, typeof data[0].bookId);
 
     const book = data.find(book => book.bookId === id);
 

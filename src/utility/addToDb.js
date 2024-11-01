@@ -23,7 +23,6 @@ const addToStoredReadList = (id) => {
 }
 
 
-
 const getStoredWishList = () => {
   const storedWishListStr = localStorage.getItem("wish-list");
 
@@ -48,7 +47,6 @@ const addToStoredWishList = (id) => {
     localStorage.setItem("wish-list", storedWishListStr);
   }
 };
-
 
 export { addToStoredReadList };
 export { addToStoredWishList };

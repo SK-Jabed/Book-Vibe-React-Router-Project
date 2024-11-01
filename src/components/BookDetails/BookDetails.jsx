@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { addToStoredReadList, addToStoredWishList } from '../../utility/addToDb';
 
 
 const BookDetails = () => {
@@ -12,6 +13,14 @@ const BookDetails = () => {
     const book = data.find(book => book.bookId === id);
 
     const { bookId: currentBookId, image, tags, category, rating, publisher, bookName, author, review, totalPages, yearOfPublishing } = book;
+
+    const handleReadBtn = (id) => {
+        addToStoredReadList(id);
+    }
+
+    const handleWishlistBtn = (id) => {
+        addToStoredWishList(id);
+    }
 
     return (
       <div className="mb-24 grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
@@ -65,8 +74,8 @@ const BookDetails = () => {
             </div>
           </div>
           <div className='flex items-center gap-4 mt-4'>
-            <button className='border-2 border-gray-300 py-4 px-7 text-black text-lg font-bold rounded-lg hover:bg-cyan-500'>Read</button>
-            <button className='border-none py-4 px-7 text-white text-lg font-bold rounded-lg bg-cyan-500 hover:text-black hover:bg-cyan-600'>Wishlist</button>
+            <button onClick={() => handleReadBtn(bookId)} className='border-2 border-gray-300 py-4 px-7 text-black text-lg font-bold rounded-lg hover:bg-cyan-500'>Read</button>
+            <button onClick={() => handleWishlistBtn(bookId)} className='border-none py-4 px-7 text-white text-lg font-bold rounded-lg bg-cyan-500 hover:text-black hover:bg-cyan-600'>Wishlist</button>
           </div>
         </div>
       </div>

@@ -1,18 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Root from './components/Root/Root.jsx';
-import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
-import HomePage from './components/HomePage/HomePage.jsx';
-import DashBoard from './components/DashBoard/DashBoard.jsx';
-import BookDetails from './components/BookDetails/BookDetails.jsx';
-import ListedBooks from './components/ListedBooks/ListedBooks.jsx';
-
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./components/Root/Root.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
+import HomePage from "./components/HomePage/HomePage.jsx";
+import DashBoard from "./components/DashBoard/DashBoard.jsx";
+import BookDetails from "./components/BookDetails/BookDetails.jsx";
+import ListedBooks from "./components/ListedBooks/ListedBooks.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -42,8 +40,20 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
-)
+    <ToastContainer
+      position="top-center"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="colored"
+    />
+  </StrictMode>
+);

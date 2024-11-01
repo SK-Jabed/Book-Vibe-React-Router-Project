@@ -10,6 +10,8 @@ const ListedBooks = () => {
 
     const [readList, setReadList] = useState([]);
 
+    const [sort, setSort] = useState("");
+
     useEffect(() => {
         const storedReadList = getStoredReadList();
 
@@ -23,9 +25,33 @@ const ListedBooks = () => {
         
     }, [])
 
+    const handleSort = sortType => {
+        setSort(sortType)
+    }
+
     return (
       <div>
         <h3 className="text-4xl mb-8">Listed Books</h3>
+
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn m-1">
+            Sort By
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+          >
+            <li>
+              <a>Rating</a>
+            </li>
+            <li>
+              <a>Number of pages</a>
+            </li>
+            <li>
+              <a>Publisher year</a>
+            </li>
+          </ul>
+        </div>
 
         <Tabs>
           <TabList>
@@ -36,10 +62,10 @@ const ListedBooks = () => {
           <TabPanel>
             <h2 className="text-2xl">Books I read: {readList.length}</h2>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                {
-                    readList.map(book => <Book key={book.bookId} book={book}></Book>)
-                }
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {readList.map((book) => (
+                <Book key={book.bookId} book={book}></Book>
+              ))}
             </div>
           </TabPanel>
           <TabPanel>

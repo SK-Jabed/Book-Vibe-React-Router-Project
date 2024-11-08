@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { addToStoredReadList, addToStoredWishList } from '../../utility/addToDb';
+import { Helmet } from 'react-helmet-async';
 
 
 const BookDetails = () => {
@@ -24,6 +25,9 @@ const BookDetails = () => {
 
     return (
       <div className="mb-24 grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+        <Helmet>
+          <title>Book Details | Book Vibe</title>
+        </Helmet>
         <div className="p-20 bg-gray-100 rounded-2xl">
           <img className="w-[425px] h-[564px]" src={image} alt={bookName} />
         </div>

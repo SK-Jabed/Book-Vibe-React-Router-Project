@@ -43,9 +43,9 @@ const ListedBooks = () => {
           <title>Listed Books | Book Vibe</title>
         </Helmet>
 
-        <h3 className="text-4xl mb-8">Listed Books</h3>
+        <h3 className="text-4xl my-6 text-center">Listed Books</h3>
 
-        <div className="dropdown">
+        <div className="dropdown mb-8">
           <div tabIndex={0} role="button" className="btn m-1">
             {sort ? `Sort by: ${sort}` : "Sort by"}
           </div>

@@ -72,16 +72,15 @@ const ListedBooks = () => {
           </TabList>
 
           <TabPanel>
-            <h2 className="text-2xl">Books I read: {readList.length}</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 mb-12">
               {readList.map((book) => (
                 <Book key={book.bookId} book={book}></Book>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            <h2 className="text-2xl">Books I wish to read</h2>
+            
           </TabPanel>
         </Tabs>
       </div>
